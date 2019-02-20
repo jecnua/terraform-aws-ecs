@@ -1,0 +1,24 @@
+[{
+  "essential": true,
+  "name": "weavescope",
+  "image": "weaveworks/scope:1.10.2",
+  "cpu": 10,
+  "memory": 300,
+  "memoryReservation": 150,
+  "privileged": true,
+  "networkMode": "host",
+  "portMappings": [{
+    "containerPort": 4040,
+    "hostPort": 33000,
+    "protocol": "tcp"
+  }],
+  "mountPoints": [{
+    "sourceVolume": "docker_sock",
+    "containerPath": "/var/run/docker.sock",
+    "readOnly": false
+  }],
+  "command": [
+    "--probe.docker=true",
+    "--weave=false"
+  ]
+}]

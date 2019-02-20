@@ -23,3 +23,15 @@ module "cAdvisor" {
   source     = "../modules/cAdvisor"
   cluster_id = "xxx"
 }
+
+module "weave-scope" {
+  providers = {
+    aws      = "aws"
+    template = "template"
+    random   = "random"
+  }
+
+  source       = "../tf-aws-ecs_monitoring/modules/weave-scope"
+  cluster_id   = "xxx"
+  instances_id = ["i-xxx", "i-xxx", "i-xxx"]
+}
