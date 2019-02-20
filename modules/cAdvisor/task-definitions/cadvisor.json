@@ -1,0 +1,45 @@
+[{
+  "essential": true,
+  "name": "cadvisor",
+  "image": "google/cadvisor:v0.32.0",
+  "cpu": 10,
+  "memory": 300,
+  "memoryReservation": 150,
+  "privileged": false,
+  "portMappings": [{
+    "containerPort": 8080,
+    "hostPort": 8080,
+    "protocol": "tcp"
+  }],
+  "mountPoints": [{
+      "sourceVolume": "root",
+      "containerPath": "/rootfs",
+      "readOnly": true
+    },
+    {
+      "sourceVolume": "var_run",
+      "containerPath": "/var/run",
+      "readOnly": true
+    },
+    {
+      "sourceVolume": "var_lib_docker",
+      "containerPath": "/var/lib/docker",
+      "readOnly": true
+    },
+    {
+      "sourceVolume": "dev_disk",
+      "containerPath": "/dev/disk",
+      "readOnly": true
+    },
+    {
+      "sourceVolume": "cgroup",
+      "containerPath": "/sys/fs/cgroup",
+      "readOnly": true
+    },
+    {
+      "sourceVolume": "sys",
+      "containerPath": "/sys",
+      "readOnly": true
+    }
+  ]
+}]
